@@ -1,0 +1,14 @@
+version: 2
+jobs:
+    build:
+        working_directory: /go/src/github.com/ikemonn/circleTerraform
+        docker:
+            - image: golang:latest
+              environment:
+                  GO15VENDOREXPERIMENT: 1
+        steps:
+            - checkout
+            - run:
+                name: "run go code"
+                command: |
+                    go run main.go
